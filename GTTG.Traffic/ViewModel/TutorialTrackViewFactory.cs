@@ -7,9 +7,9 @@ using GTTG.Model.Lines;
 using GTTG.Model.Model.Infrastructure;
 using GTTG.Model.Strategies.Types;
 using GTTG.Model.ViewModel.Infrastructure.Tracks;
-using GTTG.TrafficDemo.Model;
+using GTTG.Traffic.Model;
 
-namespace GTTG.TrafficDemo.ViewModel {
+namespace GTTG.Traffic.ViewModel {
 
 
     public class TutorialTrackViewFactory : ITrackViewFactory<TutorialTrackView> {
@@ -17,21 +17,21 @@ namespace GTTG.TrafficDemo.ViewModel {
         public static float RedLineStrokeWidth = 3;
         public static float BlueLineStrokeWidth = 1;
 
-        private readonly ISegmentRegistry<LineType, MeasureableSegment<LineType>> _lineSegments;
+        private readonly ISegmentRegistry<LineType, MeasureableSegment> _lineSegments;
 
-        public TutorialTrackViewFactory(ISegmentRegistry<LineType, MeasureableSegment<LineType>> lineSegments) {
+        public TutorialTrackViewFactory(ISegmentRegistry<LineType, MeasureableSegment> lineSegments) {
             _lineSegments = lineSegments;
         }
 
         public TutorialTrackView CreateTrackView(Track track) {
 
             var lineType = LineType.Of(track);
-            var segment = new MeasureableSegment<LineType>(lineType);
+            var segment = new MeasureableSegment();
             _lineSegments.Register(segment).As(lineType);
             return new TutorialTrackView(track, CreateTrackLine(track), segment);
         }
 
-        private static TrackLine CreateTrackLine(Track track) {
+        private static LinePaint CreateTrackLine(Track track) {
 
             if (!(track is TutorialTrack demoTrack)) {
                 throw new ArgumentException("Type of track was not recognized.");
@@ -39,9 +39,9 @@ namespace GTTG.TrafficDemo.ViewModel {
 
             switch (demoTrack.TrackType) {
                 case TrackType.Cargo:
-                    return new TrackLine(BlueLineStrokeWidth, SKColors.Blue);
+                    return new LinePaint(BlueLineStrokeWidth, SKColors.Blue);
                 case TrackType.Passenger:
-                    return new TrackLine(RedLineStrokeWidth, SKColors.Red);
+                    return new LinePaint(RedLineStrokeWidth, SKColors.Red);
                 default:
                     throw new ArgumentException($"{nameof(demoTrack.TrackType)} enum member was not recognized.");
             }

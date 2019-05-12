@@ -1,11 +1,10 @@
 ﻿using System.Windows;
 
-namespace GTTG.TrafficDemo
-{
+namespace GTTG.Traffic {
+
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
-    {
+    public partial class App : Application {
     }
 }

@@ -13,12 +13,13 @@ using GTTG.Model.Model.Traffic;
 using GTTG.Model.Strategies.Types;
 using GTTG.Model.ViewModel.Infrastructure.Railways;
 using GTTG.Model.ViewModel.Traffic;
-using GTTG.TrafficDemo.Layers;
-using GTTG.TrafficDemo.MouseInput;
-using GTTG.TrafficDemo.ViewModel;
-using GTTG.TrafficDemo.ViewModel.Traffic;
+using GTTG.Traffic.Layers;
+using GTTG.Traffic.MouseInput;
+using GTTG.Traffic.ViewModel;
+using GTTG.Traffic.ViewModel.Traffic;
+using GTTG.TrafficDemo;
 
-namespace GTTG.TrafficDemo {
+namespace GTTG.Traffic {
 
     /// <summary>
     /// Interaction logic for GraphicalComponentUserControl.xaml
@@ -45,9 +46,9 @@ namespace GTTG.TrafficDemo {
             _drawingManager = new DrawingManager(new CanvasFactory(_graphicalComponent), new DrawingLayersOrder());
             _dragProcessor = new DragProcessor();
 
-            var lineSegments = new SegmentRegistry<LineType, MeasureableSegment<LineType>>();
-            var tracksSegments = new SegmentRegistry<SegmentType<Track>, MeasureableSegment<SegmentType<Track>>>();
-            var stationSegments = new SegmentRegistry<SegmentType<Station>, MeasureableSegment<SegmentType<Station>>>();
+            var lineSegments = new SegmentRegistry<LineType, MeasureableSegment>();
+            var tracksSegments = new SegmentRegistry<SegmentType<Track>, MeasureableSegment>();
+            var stationSegments = new SegmentRegistry<SegmentType<Station>, MeasureableSegment>();
 
             var trackViewFactory = new TutorialTrackViewFactory(lineSegments);
             var stationViewFactory = new TutorialStationViewFactory(trackViewFactory, tracksSegments);

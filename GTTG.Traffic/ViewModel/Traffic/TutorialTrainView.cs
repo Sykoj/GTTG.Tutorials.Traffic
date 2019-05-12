@@ -3,9 +3,9 @@ using GTTG.Model.Model.Traffic;
 using GTTG.Model.Strategies;
 using GTTG.Model.Strategies.Types;
 using GTTG.Model.ViewModel.Traffic;
-using GTTG.TrafficDemo.Components;
+using GTTG.Traffic.Components;
 
-namespace GTTG.TrafficDemo.ViewModel.Traffic {
+namespace GTTG.Traffic.ViewModel.Traffic {
 
     public class TutorialTrainView : StrategyTrainView<Strategy, Train> {
 

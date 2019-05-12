@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using SkiaSharp;
 
+using GTTG.Core.Base;
 using GTTG.Core.Component;
 using GTTG.Core.Drawing.Canvases;
 using GTTG.Core.Drawing.Layers;
 
-namespace GTTG.TrafficDemo.Layers {
+namespace GTTG.Traffic.Layers {
 
     public class TimeAxisLayer : ContentDrawingLayer {
 
@@ -51,6 +53,10 @@ namespace GTTG.TrafficDemo.Layers {
                 var x = _viewProvider.GetContentHorizontalPosition(dateTime);
                 drawingCanvas.Canvas.DrawText(dateTime.ToString("HH:mm"), new SKPoint(x, Height - Padding), TimePaint);
             }
+        }
+
+        public override IEnumerable<IVisual> ProvideVisuals() {
+            yield break;
         }
     }
 }

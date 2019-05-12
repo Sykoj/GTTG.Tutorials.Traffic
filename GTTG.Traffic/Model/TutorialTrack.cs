@@ -1,6 +1,6 @@
 ﻿using GTTG.Model.Model.Infrastructure;
 
-namespace GTTG.TrafficDemo.Model {
+namespace GTTG.Traffic.Model {
 
     public class TutorialTrack : Track {
 

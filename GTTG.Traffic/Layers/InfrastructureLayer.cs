@@ -1,9 +1,11 @@
-﻿using GTTG.Core.Drawing.Canvases;
+﻿using System.Collections.Generic;
+using GTTG.Core.Base;
+using GTTG.Core.Drawing.Canvases;
 using GTTG.Core.Drawing.Layers;
 using GTTG.Model.ViewModel.Infrastructure.Railways;
-using GTTG.TrafficDemo.ViewModel;
+using GTTG.Traffic.ViewModel;
 
-namespace GTTG.TrafficDemo.Layers {
+namespace GTTG.Traffic.Layers {
 
     public class InfrastructureLayer : ContentDrawingLayer {
 
@@ -15,6 +17,10 @@ namespace GTTG.TrafficDemo.Layers {
 
         protected override void OnDraw(DrawingCanvas drawingCanvas) {
             drawingCanvas.Draw(_railwayView);
+        }
+
+        public override IEnumerable<IVisual> ProvideVisuals() {
+            yield return _railwayView;
         }
     }
 }

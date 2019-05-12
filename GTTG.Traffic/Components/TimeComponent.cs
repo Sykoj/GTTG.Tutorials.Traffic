@@ -6,7 +6,7 @@ using GTTG.Core.Base;
 using GTTG.Core.Drawing.Canvases;
 using GTTG.Model.Model.Events;
 
-namespace GTTG.TrafficDemo.Components {
+namespace GTTG.Traffic.Components {
 
     public class TimeComponent : ViewElement {
 
@@ -44,6 +44,10 @@ namespace GTTG.TrafficDemo.Components {
             drawingCanvas.Canvas.DrawPath(TextPath, TimePaint);
         }
 
+        public override IEnumerable<IVisual> ProvideVisuals() {
+            yield break;
+        }
+
         protected override SKSize MeasureOverride(SKSize availableSize) {
 
             float measuredHeight = Math.Abs(TimePaint.FontMetrics.CapHeight);
@@ -55,10 +59,6 @@ namespace GTTG.TrafficDemo.Components {
             TextPathY = measuredHeight - Padding;
             TextPath = TimePaint.GetTextPath(text: TextString, x:0, y:TextPathY);
             return new SKSize(measuredTextWidth, measuredHeight);
-        }
-
-        protected override IEnumerable<IVisual> ProvideVisualsToHitTest() {
-            yield break;
         }
     }
 }

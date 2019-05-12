@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GTTG.TrafficDemo.MouseInput  {
+namespace GTTG.Traffic.MouseInput  {
 
     public static class MouseInputConnector {
 

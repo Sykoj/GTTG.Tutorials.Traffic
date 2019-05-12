@@ -3,9 +3,8 @@ using System.Reactive;
 using System.Reactive.Linq;
 using System.Windows;
 using System.Windows.Input;
+using GTTG.Traffic.MouseInput;
 using SkiaSharp.Views.WPF;
-
-using GTTG.TrafficDemo.MouseInput;
 
 namespace GTTG.TrafficDemo {
 

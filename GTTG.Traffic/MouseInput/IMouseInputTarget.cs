@@ -1,4 +1,4 @@
-﻿namespace GTTG.TrafficDemo.MouseInput {
+﻿namespace GTTG.Traffic.MouseInput {
 
     public interface IMouseInputTarget {
 

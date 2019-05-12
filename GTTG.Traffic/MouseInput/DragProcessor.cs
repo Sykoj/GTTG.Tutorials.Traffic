@@ -1,6 +1,6 @@
 ﻿using SkiaSharp;
 
-namespace GTTG.TrafficDemo.MouseInput {
+namespace GTTG.Traffic.MouseInput {
 
     public enum DragState { On, Off }
     public enum DragStateTransition { Changed, Unchanged }

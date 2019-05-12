@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace GTTG.TrafficDemo {
+namespace GTTG.Traffic {
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml

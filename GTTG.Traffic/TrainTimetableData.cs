@@ -5,9 +5,9 @@ using GTTG.Core.Time;
 using GTTG.Model.Model.Events;
 using GTTG.Model.Model.Infrastructure;
 using GTTG.Model.Model.Traffic;
-using GTTG.TrafficDemo.Model;
+using GTTG.Traffic.Model;
 
-namespace GTTG.TrafficDemo {
+namespace GTTG.Traffic {
 
     public static class TrainTimetableData {
 

@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using SkiaSharp;
 
+using GTTG.Core.Base;
 using GTTG.Core.Component;
 using GTTG.Core.Drawing.Canvases;
 using GTTG.Core.Drawing.Layers;
 
-namespace GTTG.TrafficDemo.Layers {
+namespace GTTG.Traffic.Layers {
 
     public class TimeLinesLayer : ContentDrawingLayer {
 
@@ -85,6 +87,10 @@ namespace GTTG.TrafficDemo.Layers {
                 _verticalHourLine.LineTo(new SKPoint(canvasX, drawingCanvas.Size.Height));
                 drawingCanvas.Canvas.DrawPath(_verticalHourLine, _halfHourLinePaint);
             }
+        }
+
+        public override IEnumerable<IVisual> ProvideVisuals() {
+            yield break;
         }
     }
 }

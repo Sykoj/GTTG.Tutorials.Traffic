@@ -4,7 +4,7 @@ using System.Collections.Immutable;
 
 using GTTG.Core.Drawing.Layers;
 
-namespace GTTG.TrafficDemo.Layers {
+namespace GTTG.Traffic.Layers {
 
     public class DrawingLayersOrder : IRegisteredLayersOrder {
 

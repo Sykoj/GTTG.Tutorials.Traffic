@@ -9,30 +9,32 @@ using GTTG.Model.Strategies.Types;
 using GTTG.Model.ViewModel.Infrastructure.Stations;
 using GTTG.Model.ViewModel.Infrastructure.Tracks;
 
-namespace GTTG.TrafficDemo.ViewModel {
+namespace GTTG.Traffic.ViewModel {
 
     public class TutorialStationView : StrategyStationView<TutorialTrackView> {
 
         public TutorialStationView(Station station,
             ITrackViewFactory<TutorialTrackView> trackViewFactory,
-            ISegmentRegistry<SegmentType<Track>, MeasureableSegment<SegmentType<Track>>> segmentRegistry)
+            ISegmentRegistry<SegmentType<Track>, MeasureableSegment> segmentRegistry)
             : base(station, segmentRegistry, trackViewFactory) {
+
+            HasClipEnabled = true; // apply clip, because DrawColor would otherwise cover whole canvas
 
             foreach (var track in TrackViews.Select(t => t.Track)) {
 
-                Segments.Resolve(new SegmentType<Track>(track, SegmentPlacement.Lower)).HeightMeasureHelpers += MeasureSegmentHeight;
-                Segments.Resolve(new SegmentType<Track>(track, SegmentPlacement.Upper)).HeightMeasureHelpers += MeasureSegmentHeight;
+                TrackSegments.Resolve(new SegmentType<Track>(track, SegmentPlacement.Lower)).HeightMeasureHelpers += MeasureSegmentHeight;
+                TrackSegments.Resolve(new SegmentType<Track>(track, SegmentPlacement.Upper)).HeightMeasureHelpers += MeasureSegmentHeight;
             }
         }
-
+         
         protected override void OnDraw(DrawingCanvas drawingCanvas) {
 
             drawingCanvas.Canvas.DrawColor(SKColors.WhiteSmoke);
             foreach (var trackView in TrackViews) {
-                drawingCanvas.Draw(trackView);
-            }
+                    drawingCanvas.Draw(trackView);
+                }
         }
 
-        private static float MeasureSegmentHeight() => 5;
+        private static float MeasureSegmentHeight() => 15;
     }
 }
